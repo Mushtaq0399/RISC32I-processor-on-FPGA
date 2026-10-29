@@ -1,7 +1,7 @@
 module riscv_core (
     input  wire        clk,
     input  wire        rst_n,      // active-low reset, the _n = 'negated'
-    // when rst_n = 0 the CPU is forced to a know start state and when its 1 it works normally.
+    // when rst_n = 0 the CPU is forced to a known start state and when its 1 it works normally.
     // simple instruction + data memory interfaces
     output wire [31:0] imem_addr, //Instruction memory address. The CPU outputs which instruction it wants next.
     input  wire [31:0] imem_data, //The instruction word. Read back the intruction memory at that address.
