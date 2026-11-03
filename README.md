@@ -6,4 +6,8 @@ Design of a 32 bit RISC-V processor with base integer instruction set and enhanc
 # Stage 2:
  - Optimizing the RV32I into a 5-stage pipelined code with forwarding, hazard handling, add CSRs and mermory mapped I/O. Implement it on a FPGA.
 
+# Registers
+ - Load-Store Architecture: it is an instruction set archituecture (ISA) where the CPU does'nt allow Arithmetic&Logical instructions to directly access memory.
+ - In RISC-V, data must first be copied from memory to internal registers using a load instruction, proccessed using registers via ALU, and then written back to memory using store instructions. 
+
 
