@@ -10,4 +10,13 @@ Design of a 32 bit RISC-V processor with base integer instruction set and enhanc
  - Load-Store Architecture: it is an instruction set archituecture (ISA) where the CPU does'nt allow Arithmetic&Logical instructions to directly access memory.
  - In RISC-V, data must first be copied from memory to internal registers using a load instruction, proccessed using registers via ALU, and then written back to memory using store instructions. 
 
+My processor with have 32 32-bit wide registers named x0,x1-x31. 
+
+# x0 Register
+ - x0 is a special register as it is hardwired to zero. Reading it will get 0 and writing to it will throw away the write.
+ - We can use this functionality to cleverly use it to reduce instruction set by utilizing its propert to work as a:
+    - Use it anytime a zero is reguired.
+    - copy a register using the add function, Example: add x2, x3, x0 will copy x3 to x2 without specifically using any copy function.
+    - If you want to thow away a result just write it to x0.
+
 
