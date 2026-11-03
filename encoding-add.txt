@@ -1,0 +1,20 @@
+Instruction:  add x7, x5, x6      (x7 = x5 + x6)   --> R-type
+
+Fill the R-type boxes:
+  funct7 = 0000000   (add; for sub it would be 0100000)
+  rs2    = x6 = 6  = 00110
+  rs1    = x5 = 5  = 00101
+  funct3 = 000       (add/sub family)
+  rd     = x7 = 7  = 00111
+  opcode = 0110011   (OP - register-register arithmetic)
+
+Lay them out, bit 31 -> bit 0:
+  0000000 | 00110 | 00101 | 000 | 00111 | 0110011
+  funct7    rs2     rs1    f3    rd      opcode
+
+As one 32-bit word:
+  0000 0000 0110 0010 1000 0011 1011 0011
+  = 0x006283B3
+
+That single number IS the instruction. Memory hands the CPU 0x006283B3,
+the decoder slices out the fields, and the ALU computes x5 + x6 into x7.
