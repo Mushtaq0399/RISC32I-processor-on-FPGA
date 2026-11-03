@@ -24,21 +24,21 @@ My processor with have 32 32-bit wide registers named x0,x1-x31.
 
 ## Fields in a 32-bit instruction set
  - opcode
-  - size: 7 bits (bits [6:0])
-  - It signifies the general instruction type and format (such as R-type, I-type, B-type, S-type etc.)
+    - size: 7 bits (bits [6:0])
+    - It signifies the general instruction type and format (such as R-type, I-type, B-type, S-type etc.)
  - rd
-  -  size: 5 Bits
-  - It signified where the results goes, Desitnation register. ( 5 bits = one of 32 registers)
+    -  size: 5 Bits
+    - It signified where the results goes, Desitnation register. ( 5 bits = one of 32 registers)
  - rs1 & rs2
-  - size: 5 Bits each
-  - Source register 1 - first input
-  - Source register 2 - second input
+    - size: 5 Bits each
+    - Source register 1 - first input
+    - Source register 2 - second input
  - funct3
-  - size: 3 Bits
-  - Picks he exact operation within the opcode's family/format.
+    - size: 3 Bits
+    - Picks he exact operation within the opcode's family/format.
  - funct7
-  - size: 7 Bits
-  - Exact bits to distinguish operations that share a funct3
+    - size: 7 Bits
+    - Exact bits to distinguish operations that share a funct3
  - imm
-  - size: varies
-  - Immediate: a constant value baked into the instruction.    
+    - size: varies
+    - Immediate: a constant value baked into the instruction.    
