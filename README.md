@@ -42,3 +42,5 @@ My processor with have 32 32-bit wide registers named x0,x1-x31.
  - imm
     - size: varies
     - Immediate: a constant value baked into the instruction.    
+
+![alt text](image.png)
