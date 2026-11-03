@@ -44,3 +44,13 @@ My processor with have 32 32-bit wide registers named x0,x1-x31.
     - Immediate: a constant value baked into the instruction.    
 
 ![alt text](image.png)
+
+## opcode Formats
+ - R-type (Register): Performs an operation using two source registers (rs1 & rs2) and writes the output to rd (eg., add rd, rs1, rs2)
+ - I-type (Immediate and loads): Used for operations involving a 12-bit immediate value and load instructions. (eg., addi, lw etc.)
+ - S-type (Store Instruction): Used for storing data from registers into memory, splitting  the 12-bit immeditate across two fields to keep register position aligned with R-type and I-type formats.
+ - B-type (Branch Instructions): comapres two registers and, if the condition holds, jumps by a signed offset. Like S-type but the immediate encodes a branch target.
+ - U-type (Upper Immediate): loads a 20-bit constant into upper bits of a register. (eg., lui (load upper immedite) auipc)
+ - J-type (Jump): an unconditional jump with a 20-bit offset, saving the return address in rd. (eg., jal x1, function)
+
+ 
