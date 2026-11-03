@@ -21,3 +21,5 @@ My processor with have 32 32-bit wide registers named x0,x1-x31.
 
 # The Program Counter Register
  - In RISC-V, the Program Counter (PC) is a dedicated register that holds the memory address of the current instruction executing. It is one of the most critical parts of the processor's datapath, directing the CPU on where to fetch the next instruction from memory.
+
+## Fields in a 32-bit instruction set
