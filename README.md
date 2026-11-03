@@ -19,4 +19,5 @@ My processor with have 32 32-bit wide registers named x0,x1-x31.
     - copy a register using the add function, Example: add x2, x3, x0 will copy x3 to x2 without specifically using any copy function.
     - If you want to thow away a result just write it to x0.
 
-
+# The Program Counter Register
+ - In RISC-V, the Program Counter (PC) is a dedicated register that holds the memory address of the current instruction executing. It is one of the most critical parts of the processor's datapath, directing the CPU on where to fetch the next instruction from memory.
