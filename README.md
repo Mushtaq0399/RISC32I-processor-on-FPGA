@@ -87,3 +87,24 @@ A RISC-V instruction is 32 bits arranged into fields — opcode, rd, rs1, rs2, f
     - Instruction: slti, sltiu
         - Example: set 1 if rs1 < constant (signed/unsigned)
 
+### Load & Store - S-type
+ - Load and store are the only isntructions that touch the memory
+    - Instruction: lw
+        - Example: load a 32-bit word from memory into rd
+    - Instruction: lh/lb
+        - Example: load a 16-bit/ 8-bit byte (sign-extended)
+    - Instruction: lhu/lbu
+        - Example: load half/byte, usigned (zero-extended)
+    - Instruction: sw/sh/sb
+        - Example: Store a word / half/ byte from rs2 to memory
+
+### Branches - B-type
+ - A branch 'if' compares two registers and jumps only if the conditon is true (otherwise it just continues)
+    - Instruction: beq/bne
+        - Example: Jump if rs1 == rs2 / rs1 != rs2
+    - Instruction: blt/bge
+        - Example: rs1 < rs2 and rs1 >= rs2
+    - Instruction: bltu/bgeu
+        - Example: same, unsigned
+
+### 
