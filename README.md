@@ -35,7 +35,7 @@ My processor with have 32 32-bit wide registers named x0,x1-x31.
     - Source register 2 - second input
  - funct3
     - size: 3 Bits
-    - Picks he exact operation within the opcode's family/format.
+    - Picks the exact operation within the opcode's family/format.
  - funct7
     - size: 7 Bits
     - Exact bits to distinguish operations that share a funct3
@@ -53,4 +53,37 @@ My processor with have 32 32-bit wide registers named x0,x1-x31.
  - U-type (Upper Immediate): loads a 20-bit constant into upper bits of a register. (eg., lui (load upper immedite) auipc)
  - J-type (Jump): an unconditional jump with a 20-bit offset, saving the return address in rd. (eg., jal x1, function)
 
- 
+A RISC-V instruction is 32 bits arranged into fields — opcode, rd, rs1, rs2, funct3/7 and an immediate. RV32I has six formats (R, I, S, B, U, J), each a different mix of those fields for different jobs. The register fields never move (for speed), so the immediate is split instead. Assembly like add x7,x5,x6 becomes one number (0x006283B3) the CPU decodes and executes.
+
+## 40 Instructions in RV32I
+ - All the instructions can be divided into 7 groups, as follows:
+    - Arithmetic: add, sub, and, or etc.
+    - Immediate: addi, andi, slli etc.
+    - Load/Store: lw, sw, lb, sb etc.
+    - Branches: beq, bne, blt etc.
+    - Jumps: jal, jalr
+    - Upper Immediate: lui, auipc
+    - System: ecall, fence
+
+### Arithmetic & Logic - R-type
+ - This is the most used opcode type in RISCV that does most reprtitiv tasks like the following:
+    - Instruction: add/sub
+        - Example: rd: rs1+rs2 / rs1-rs2
+    - Instruction: and/or/xor
+        - Example: biwise AND/OR/XOR
+    - Instruction: sll/srl/sra
+        - Example: shift left, shift right (logical), shift right (arithmetic, keeps sign)
+    - Instruction: slt, sltu
+        - Example: set rd = 1 is rs1 < rs2 (signed/unsigned), else 0
+
+### Same operations with a constant -  I-type
+ - Often one operand is a fixed number, not a register. The immediate versions imbed a 12-bit constant right into the instruction.
+    - Instruction: addi
+        - Example: rd = rs1 + cosntant
+    - Instruction: andi, ori, xori
+        - Example: bitwise op with a cosntant
+    - Instruction: slli, srli, srai
+        - Example: shift by a constant amount
+    - Instruction: slti, sltiu
+        - Example: set 1 if rs1 < constant (signed/unsigned)
+
