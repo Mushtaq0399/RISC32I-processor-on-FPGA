@@ -107,4 +107,26 @@ A RISC-V instruction is 32 bits arranged into fields — opcode, rd, rs1, rs2, f
     - Instruction: bltu/bgeu
         - Example: same, unsigned
 
-### 
+### Jumps and Big constants - J&U-type
+ - 
+    - Instruction: jal
+        - Example: Jump and link — jump to a label, save the return address in rd (used to call functions)
+    - Instruction: jalr
+        - Example: jump to an address in a register (used to return from functions, and for computed jumps)
+    - Instruction: lui
+        - Example: Load upper immediate — put a 20-bit constant into the top of a register (for building big numbers)
+    - Instruction: auipc
+        - Example: add a 20-bit constant to the PC (for position-independent addressing)
+
+### Psuedo Instructions
+ - You'll see commands in assembly that aren't in the tables above — like li or mv. Those are pseudo-instructions: convenient shorthands the assembler automatically expands into real RV32I instructions. They make code readable without adding hardware:
+    - Instruction: li rd, 5
+        - Becomes: addi rd, x0, 5 (load a small constant)
+    - Instruction: mv rd, rs
+        - Becomes: addi rd, rs, 0 (copy a register)
+    - Instruction: nop
+        - Becomes: addi x0, x0, 0 (do nothing)
+    - Intrcution: j label
+        - Becomes: 	jal x0, label (jump, don't save return)
+    - Instruction: ret
+        - Becomes: jalr x0, 0(x1) (return: jump to ra)
